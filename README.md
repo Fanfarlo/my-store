@@ -20,7 +20,8 @@ Clone the github repository, go the project my-store folder and use npm install 
 * `npm install`
 
 ### Usage
-To visualize the project in your browser write ng serve and use the `port : 4200`
+
+To visualize the project in your browser write `ng serve` and use the `port : 4200`
 
 * `ng serve`
 * `http://localhost:4200`
