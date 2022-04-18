@@ -1,0 +1,27 @@
+/* .header {
+  text-align: center;
+  
+  color: #fff;
+  padding: 12px;
+} */
+
+nav {
+  background: #33b5e5;
+  color: white;
+}
+a{
+  color: white;
+  font-weight: bold;
+}
+/* a:hover{
+  color: red;
+} */
+.nav-link:focus, .nav-link:hover {
+  color: red;
+}
+/* a {
+  color: #ffffff;
+}
+button{
+  margin: 15px 0;
+} */

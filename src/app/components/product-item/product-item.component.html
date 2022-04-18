@@ -1,0 +1,9 @@
+<a (click)="addToDetails(product)" routerLink="/details">
+  <img class="product-image" src="{{ product.url }}" />
+</a>
+<p class="h2">{{ product.name }}</p>
+<p>{{ product.price | currency }}</p>
+<select class="custom-select mr-sm-2" [(ngModel)]="selected">
+  <option *ngFor="let n of quantityList">{{ n }}</option>
+</select>
+<button class="btn btn-warning" style="margin-top: 15px;" (click)="addToCart(product)" value="Add to Cart">Add to Cart</button>
