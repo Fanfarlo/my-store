@@ -4,7 +4,9 @@
   Login before adding to the cart
 </h1>
 <div *ngIf="auth.user$ | async as user">
-  <h1 *ngIf="cartList.length === 0 || cartList === null" class="empty-cart-message">
+  <h1
+    *ngIf="cartList.length === 0 || cartList === null"
+    class="empty-cart-message">
     Cart is empty
   </h1>
   <div class="cart-container" *ngIf="cartList.length > 0">
@@ -25,84 +27,14 @@
         </ul>
       </div>
       <div>
-        <h3 class="alert alert-secondary">Total: {{ totalAmount | currency }}</h3>
+        <h3 class="alert alert-secondary">
+          Total: {{ totalAmount | currency }}
+        </h3>
       </div>
     </div>
-
-    <div class="cart-panel">
-      <form class="form-margin" #myform="ngForm" (ngSubmit)="onSubmit()">
-        <ul>
-          <li>
-            <label for="name">Full Name</label>
-            <br />
-            <input
-              type="text"
-              class="form-control"
-              name="name"
-              placeholder="(minimun 3 characters)"
-              [(ngModel)]="name"
-              #fullName="ngModel"
-              minlength="3"
-              required />
-          </li>
-          <li>
-            <label for="address">Address</label>
-            <br />
-            <input
-              type="text"
-              class="form-control"
-              name="address"
-              placeholder="(minimun 6 characters)"
-              [(ngModel)]="address"
-              #fullAddress="ngModel"
-              minlength="6"
-              required />
-          </li>
-          <li>
-            <label for="card">Credit card number</label>
-            <br />
-            <input
-              type="text"
-              class="form-control"
-              name="card"
-              minlength="16"
-              maxlength="16"
-              pattern="[0-9]{16,16}"
-              placeholder="(16-digit-numbers)"
-              [(ngModel)]="card"
-              #cardNumber="ngModel"
-              required />
-          </li>
-          <li>
-            <input class="btn btn-primary" type="submit" [disabled]="myform.invalid" value="Submit" />
-          </li>
-        </ul>
-
-        <div *ngIf="fullName.invalid && fullName.dirty">
-          <div *ngIf="fullName.errors?.['minlength']">
-            Name must be at least 3 characters long
-          </div>
-          <div *ngIf="fullName.errors?.['required']">Name is required</div>
-        </div>
-
-        <div *ngIf="fullAddress.dirty && fullAddress.invalid">
-          <div *ngIf="fullAddress.errors?.['minlength']">
-            Address must be at least 6 characters long
-          </div>
-          <div *ngIf="fullAddress.errors?.['required']">
-            Address is required
-          </div>
-        </div>
-
-        <div *ngIf="cardNumber.dirty && cardNumber.invalid">
-          <div *ngIf="cardNumber.errors?.['minlength']">
-            Credit card number must be 16 digits
-          </div>
-          <div *ngIf="cardNumber.errors?.['required']">
-            Credit card number is required
-          </div>
-        </div>
-      </form>
-    </div>
+    <!-- insert form -->
+    <app-user-data
+      [totalAmount]="totalAmount"
+      (emptyCart)="getEmptyCart($event)"></app-user-data>
   </div>
 </div>

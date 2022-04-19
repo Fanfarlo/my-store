@@ -3,25 +3,11 @@ img {
   border-radius: 10px;
 }
 
-ul {
-  list-style-type: none;
-}
-.form-margin {
-  margin-bottom: 12px;
-}
-form li {
-  margin: 15px 0;
-}
-label{
-  margin: 0 0 8px 0;
-}
-form li:last-child {
-  margin: 30px 0 0 0;
-}
+
 .cart-item {
   display: flex;
   flex-direction: row;
-  
+
   margin-bottom: 20px;
 }
 

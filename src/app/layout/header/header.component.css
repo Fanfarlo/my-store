@@ -9,14 +9,15 @@ nav {
   background: #33b5e5;
   color: white;
 }
-a{
+a {
   color: white;
   font-weight: bold;
 }
 /* a:hover{
   color: red;
 } */
-.nav-link:focus, .nav-link:hover {
+.nav-link:focus,
+.nav-link:hover {
   color: red;
 }
 /* a {

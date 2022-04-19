@@ -13,6 +13,7 @@ import { LoadingComponent } from './layout/loading/loading.component';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { UserDataComponent } from './components/user-data/user-data.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductItemDetailComponent,
     HeaderComponent,
     LoadingComponent,
+    UserDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
       cacheLocation: 'localstorage',
       useRefreshTokens: true,
       redirectUri: window.location.origin,
-    })
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

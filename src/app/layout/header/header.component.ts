@@ -10,7 +10,7 @@ export class HeaderComponent {
   constructor(public auth: AuthService) {}
   loginWithRedirect() {
     // go inside loginWithRedirect({appState: {target: '/cart'}}) to set return page
-    this.auth.loginWithRedirect({appState: {target: '/cart'}}); 
+    this.auth.loginWithRedirect({ appState: { target: '/cart' } });
   }
 
   logOut() {

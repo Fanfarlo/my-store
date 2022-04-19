@@ -8,7 +8,7 @@ import { paymentInfo } from '../models/payment';
 })
 export class CartService {
   cartList: Product[] = [];
-  storageList: Product[]= [];
+  storageList: Product[] = [];
   amount: number = 0;
   paymentInfo: paymentInfo;
   totalAmount: string;
@@ -29,32 +29,31 @@ export class CartService {
   //   return this.cartList
   // }
   getCartList() {
-    if(this.cartList === null){
-      this.cartList = []
+    if (this.cartList === null) {
+      this.cartList = [];
       return this.cartList;
     } else {
       this.cartList = JSON.parse(localStorage.getItem('cartList')!);
       return this.cartList;
     }
-    
+
     // this.cartList = JSON.parse(localStorage.getItem('cartList')!);
     // return this.cartList;
   }
 
   addToCart(product: Product) {
     const addedItem = this.cartList.find(element => element.id == product.id);
-    
+
     if (addedItem?.quantity && product.quantity) {
       addedItem.quantity =
         Number(addedItem.quantity) + Number(product.quantity);
-        localStorage.setItem('cartList', JSON.stringify(this.cartList))
+      localStorage.setItem('cartList', JSON.stringify(this.cartList));
       alert('Updated cart');
     } else {
       this.cartList.unshift(product);
-      localStorage.setItem('cartList', JSON.stringify(this.cartList))
+      localStorage.setItem('cartList', JSON.stringify(this.cartList));
       alert('Added  to the cart');
     }
-    
   }
 
   removeProduct(product: Product) {
@@ -71,20 +70,19 @@ export class CartService {
     _.forEach(this.cartList, p => {
       value += p.quantity * p.price;
     });
-    localStorage.setItem('cartList', JSON.stringify(this.cartList))
+    localStorage.setItem('cartList', JSON.stringify(this.cartList));
     return (this.totalAmount = value.toFixed(2));
   }
 
   addInfo(paymentInfo: paymentInfo) {
-    let empty: Product[] = []
+    // let empty: Product[] = []
     this.paymentInfo = paymentInfo;
-    localStorage.removeItem('cartList')
-    this.cartList = empty
-    localStorage.setItem('cartList', JSON.stringify(this.cartList))
+    // localStorage.removeItem('cartList')
+    // this.cartList = empty
+    // localStorage.setItem('cartList', JSON.stringify(this.cartList))
   }
 
   getInfo() {
     return this.paymentInfo;
-    
   }
 }
